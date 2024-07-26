@@ -59,6 +59,9 @@ async def audio_transcriber(
         if len(new_words) > 0:
             confirmed.extend(new_words)
             yield confirmed
+        else:
+            incoming = transcription.after(confirmed.end - 0.1)
+            yield incoming
     logger.debug("Flushing...")
     confirmed.extend(local_agreement.unconfirmed.words)
     yield confirmed
