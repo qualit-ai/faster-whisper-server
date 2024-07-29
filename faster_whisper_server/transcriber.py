@@ -61,7 +61,8 @@ async def audio_transcriber(
             yield confirmed
         else:
             incoming = transcription.after(confirmed.end - 0.1)
-            yield incoming
+            confirmed_plus_incoming = Transcription(confirmed.words + incoming.words)
+            yield confirmed_plus_incoming
     logger.debug("Flushing...")
     confirmed.extend(local_agreement.unconfirmed.words)
     yield confirmed
