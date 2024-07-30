@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  IMAGE_NAME: "murmure-rapide"
+  IMAGE_NAME: "faster-whisper-server"
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
 
 jobs:
